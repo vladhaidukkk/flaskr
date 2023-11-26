@@ -8,4 +8,8 @@ def create_app():
     def index():
         return "Hello world!"
 
+    from . import auth
+
+    app.register_blueprint(auth.bp)
+
     return app
