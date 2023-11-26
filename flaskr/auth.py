@@ -1,13 +1,13 @@
-from flask import Blueprint
+from flask import Blueprint, render_template
 
 bp = Blueprint("auth", __name__, url_prefix="/auth")
 
 
 @bp.route("/register")
 def register():
-    return "Register"
+    return render_template("auth/register.jinja")
 
 
 @bp.route("/login")
 def login():
-    return "Login"
+    return render_template("auth/login.jinja")
