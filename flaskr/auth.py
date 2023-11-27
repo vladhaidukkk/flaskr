@@ -1,4 +1,6 @@
-from flask import Blueprint, redirect, render_template, request, session, url_for
+import functools
+
+from flask import Blueprint, g, redirect, render_template, request, session, url_for
 from werkzeug.security import check_password_hash, generate_password_hash
 
 from flaskr.db import get_db
@@ -60,3 +62,31 @@ def login():
             return redirect(url_for("index"))
 
     return render_template("auth/login.jinja", error=error)
+
+
+@bp.route("/logout")
+def logout():
+    session.clear()
+    return redirect(url_for("auth.login"))
+
+
+@bp.before_app_request
+def load_logged_in_user():
+    user_id = session.get("user_id")
+
+    if user_id:
+        g.user = (
+            get_db().execute("SELECT * FROM user WHERE id = ?", (user_id,)).fetchone()
+        )
+    else:
+        g.user = None
+
+
+def login_required(view):
+    @functools.wraps(view)
+    def view_wrapper(**kwargs):
+        if not g.user:
+            return redirect(url_for("auth.login"))
+        return view(**kwargs)
+
+    return view_wrapper
