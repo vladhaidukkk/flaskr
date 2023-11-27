@@ -5,24 +5,27 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>{% block title %}{% endblock %} | Flaskr</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
 </head>
 
 <body>
     <header>
         <h1>Flaskr | {{ self.title() }}</h1>
-        <ul>
-            {% if g.user %}
-            <li><span>{{ g.user['username'] }}</span></li>
-            <li><a href="{{ url_for('auth.logout') }}">Log Out</a></li>
-            {% else %}
-            <li><a href="{{ url_for('auth.login') }}">Log In</a></li>
-            <li><a href="{{ url_for('auth.register') }}">Register</a></li>
-            {% endif %}
-        </ul>
+        <nav>
+            <ul>
+                {% if g.user %}
+                <li><span>{{ g.user['username'] }}</span></li>
+                <li><a href="{{ url_for('auth.logout') }}">Log Out</a></li>
+                {% else %}
+                <li><a href="{{ url_for('auth.login') }}">Log In</a></li>
+                <li><a href="{{ url_for('auth.register') }}">Register</a></li>
+                {% endif %}
+            </ul>
+        </nav>
     </header>
     <main>
         {% if error %}
-        <div>{{ error }}</div>
+        <div class="error">{{ error }}</div>
         {% endif %}
         {% block content %}{% endblock %}
     </main>
