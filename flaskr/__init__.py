@@ -23,8 +23,9 @@ def create_app(test_config=None):
     def index():
         return "Hello world!"
 
-    from . import auth
+    from . import auth, db
 
+    db.init_app(app)
     app.register_blueprint(auth.bp)
 
     return app
