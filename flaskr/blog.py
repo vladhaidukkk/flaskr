@@ -65,6 +65,7 @@ def get_post(post_id, check_author=True):
 
 
 @bp.route("/<int:id>/update", methods=("GET", "POST"))
+@login_required
 def update(id):
     post = get_post(id)
     error = None
