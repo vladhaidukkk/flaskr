@@ -4,6 +4,7 @@
     box-sizing: border-box;
     margin: 0;
     padding: 0;
+    font-family: inherit;
 }
 
 html {
@@ -76,7 +77,8 @@ form label {
     font-size: 2rem;
 }
 
-form input {
+form input,
+form textarea {
     margin-bottom: 1.6rem;
     padding: 0.8rem 1.6rem;
     border: 0.2rem solid #cbd5e1;
@@ -85,7 +87,13 @@ form input {
     outline: none;
 }
 
-form input:focus {
+form textarea {
+    resize: none;
+    min-height: 19.5rem;
+}
+
+form input:focus,
+form textarea:focus {
     border-color: #1d4ed8;
 }
 
