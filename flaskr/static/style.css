@@ -45,12 +45,12 @@ body {
     font-size: 2rem;
 }
 
-.header nav a {
+a {
     text-decoration: none;
     color: #1d4ed8;
 }
 
-.header nav a:hover {
+a:hover {
     text-decoration: underline;
     color: #1e40af;
 }
@@ -124,23 +124,27 @@ body {
 
 .post header {
     display: flex;
-    justify-content: flex-start;
+    justify-content: space-between;
     align-items: center;
-    gap: 1.6rem;
+    gap: 3rem;
     padding: 0.8rem 1.6rem;
     background: #cbd5e1;
-}
-
-.post header h2 {
-    font-size: 2rem;
-}
-
-.post header .details {
     font-size: 1.4rem;
 }
 
-.post header .username,
-.post header .created {
+.post .info {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    gap: 1.6rem;
+}
+
+.post .info h2 {
+    font-size: 2rem;
+}
+
+.post .info .username,
+.post .info .created {
     font-weight: 500;
 }
 
