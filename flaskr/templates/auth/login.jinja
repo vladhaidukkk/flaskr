@@ -5,9 +5,9 @@
 {% block content %}
 <form class="form" method="post">
     <label for="username">Username</label>
-    <input id="username" name="username" required />
+    <input id="username" name="username" value="{{ request.form['username'] }}" required />
     <label for="password">Password</label>
-    <input id="password" type="password" name="password" required />
+    <input id="password" type="password" name="password" value="{{ request.form['password'] }}" required />
     <button type="submit">Login</button>
 </form>
 {% endblock %}
