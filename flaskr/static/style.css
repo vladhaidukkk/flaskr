@@ -70,7 +70,14 @@ a:hover {
     color: #dc2626;
 }
 
-.form {
+.forms {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+}
+
+.form,
+.delete {
     display: flex;
     flex-direction: column;
     width: 50rem;
@@ -102,17 +109,29 @@ a:hover {
     border-color: #1d4ed8;
 }
 
-.form button {
+.form button,
+.delete button {
     padding: 0.8rem 1.6rem;
-    background: #1d4ed8;
     border: none;
     color: #f8fafc;
     font-size: 2rem;
     cursor: pointer;
 }
 
+.form button {
+    background: #1d4ed8;
+}
+
 .form button:hover {
     background: #1e40af;
+}
+
+.delete button {
+    background: #b91c1c;
+}
+
+.delete button:hover {
+    background: #991b1b;
 }
 
 .post {

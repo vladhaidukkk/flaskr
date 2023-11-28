@@ -3,11 +3,16 @@
 {% block title %}Edit "{{ post["title"] }}"{% endblock %}
 
 {% block content %}
-<form class="form" method="post">
-    <label for="title">Title</label>
-    <input id="title" name="title" value="{{ request.form['title'] or post['title'] }}" required />
-    <label for="body">Body</label>
-    <textarea id="body" name="body" required>{{ request.form['body'] or post['body'] }}</textarea>
-    <button type="submit">Save</button>
-</form>
+<div class="forms">
+    <form class="form" method="post">
+        <label for="title">Title</label>
+        <input id="title" name="title" value="{{ request.form['title'] or post['title'] }}" required />
+        <label for="body">Body</label>
+        <textarea id="body" name="body" required>{{ request.form['body'] or post['body'] }}</textarea>
+        <button type="submit">Save</button>
+    </form>
+    <form class="delete" action="{{ url_for('blog.delete', id=post['id']) }}" method="post">
+        <button type="submit" onclick="return confirm('Are you sure?')">Delete</button>
+    </form>
+</div>
 {% endblock %}
