@@ -17,7 +17,7 @@ body {
     color: #020617;
 }
 
-header {
+.header {
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -25,32 +25,37 @@ header {
     background: #cbd5e1;
 }
 
-header h1 {
+.header h1 {
     font-size: 2.8rem;
 }
 
-nav ul {
+.header h1 a {
+    text-decoration: none;
+    color: inherit;
+}
+
+.header nav ul {
     display: flex;
     align-items: center;
     gap: 2rem;
     list-style: none;
 }
 
-nav li {
+.header nav li {
     font-size: 2rem;
 }
 
-nav a {
+.header nav a {
     text-decoration: none;
     color: #1d4ed8;
 }
 
-nav a:hover {
+.header nav a:hover {
     text-decoration: underline;
     color: #1e40af;
 }
 
-main {
+.content {
     display: flex;
     flex-direction: column;
     gap: 3rem;
@@ -65,20 +70,20 @@ main {
     color: #dc2626;
 }
 
-form {
+.form {
     display: flex;
     flex-direction: column;
     width: 50rem;
     margin: 0 auto;
 }
 
-form label {
+.form label {
     margin-bottom: 0.8rem;
     font-size: 2rem;
 }
 
-form input,
-form textarea {
+.form input,
+.form textarea {
     margin-bottom: 1.6rem;
     padding: 0.8rem 1.6rem;
     border: 0.2rem solid #cbd5e1;
@@ -87,17 +92,17 @@ form textarea {
     outline: none;
 }
 
-form textarea {
+.form textarea {
     resize: none;
     min-height: 19.5rem;
 }
 
-form input:focus,
-form textarea:focus {
+.form input:focus,
+.form textarea:focus {
     border-color: #1d4ed8;
 }
 
-form button {
+.form button {
     padding: 0.8rem 1.6rem;
     background: #1d4ed8;
     border: none;
@@ -106,6 +111,40 @@ form button {
     cursor: pointer;
 }
 
-form button:hover {
+.form button:hover {
     background: #1e40af;
+}
+
+.post {
+    width: 50rem;
+    margin: 0 auto;
+    border: 0.2rem solid #cbd5e1;
+    background: #f8fafc;
+}
+
+.post header {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    gap: 1.6rem;
+    padding: 0.8rem 1.6rem;
+    background: #cbd5e1;
+}
+
+.post header h2 {
+    font-size: 2rem;
+}
+
+.post header .details {
+    font-size: 1.4rem;
+}
+
+.post header .username,
+.post header .created {
+    font-weight: 500;
+}
+
+.post pre {
+    padding: 0.8rem 1.6rem;
+    font-size: 1.4rem;
 }
